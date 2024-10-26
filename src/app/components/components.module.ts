@@ -3,10 +3,13 @@ import { AngularMaterialModule } from '../angular-material/angular-material/angu
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { UsersListComponent } from './users-list/users-list.component';
+import { UsersListExpanseComponent } from './users-list-expanse/users-list-expanse.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
-  imports: [AngularMaterialModule, FormsModule],
-  declarations: [UserDetailsComponent, FilterComponent],
-  exports: [UserDetailsComponent, FilterComponent],
+  imports: [AngularMaterialModule, FormsModule, PipesModule],
+  declarations: [UserDetailsComponent, FilterComponent, UsersListComponent, UsersListExpanseComponent],
+  exports: [UserDetailsComponent, FilterComponent, UsersListComponent,UsersListExpanseComponent],
 })
 export class ComponentsModule {}
