@@ -15,7 +15,7 @@ export class AppComponent {
   constructor() {
     setTimeout(() => {
       this.userList = UsersList;
-    }, 3000);
+    }, 1);
   }
   onUserSelected(user: IUser) {
     this.userSelected = user;
