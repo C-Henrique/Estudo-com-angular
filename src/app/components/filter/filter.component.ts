@@ -7,15 +7,17 @@ import { IFilterOptions } from '../../../interfaces/filter-options.interface';
   styleUrl: './filter.component.scss',
 })
 export class FilterComponent {
+  selectedStatus: boolean | undefined;
   filterOptions: IFilterOptions = {
     name: undefined,
     startDate: undefined,
     endDate: undefined,
-    status: [
-      { description: 'Ativo', value: true },
-      { description: 'Inativo', value: false },
-    ],
+    status: undefined,
   };
+  statusList = [
+    { description: 'Ativo', value: true },
+    { description: 'Inativo', value: false }
+  ];
   @Output('onFilter') onFilterEmitt = new EventEmitter<IFilterOptions>();
 
   onFilter() {

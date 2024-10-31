@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UsersList } from '../data/users-list';
-import { IFilterOptions } from '../interfaces/filter-options.interface';
+import {
+  IFilterOptions
+} from '../interfaces/filter-options.interface';
 import { IUser } from '../interfaces/user/user.interface';
 
 @Component({
@@ -32,8 +34,28 @@ export class AppComponent {
     let filteredList: IUser[] = [];
 
     filteredList = this.filterUsersListByName(filterOptions.name, userList);
+    filteredList = this.filterUsersListByStatus(
+      filterOptions.status,
+      filteredList
+    );
 
     return filteredList;
+  }
+  filterUsersListByStatus(
+    status: boolean | undefined,
+    filteredList: IUser[]
+  ): IUser[] {
+    const STATUS_NOT_TYPED = status === undefined;
+
+    if (STATUS_NOT_TYPED) {
+      return filteredList;
+    }
+
+    const filteredListStatus = filteredList.filter(
+      (user) => user.ativo === status
+    );
+
+    return filteredListStatus;
   }
   filterUsersListByName(name: string | undefined, userList: IUser[]): IUser[] {
     const NAME_NOT_TYPED = name === undefined;
